@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="ipad9_7" orientation="landscape">
+    <device id="retina4_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,14 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NS_Elem_1" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cC5-0f-2HT">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1Z-y1-xS5" userLabel="Middle Container">
-                                        <rect key="frame" x="363" y="55.5" width="298" height="264"/>
+                                        <rect key="frame" x="184.5" y="55.5" width="298" height="264"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KYe-H6-QLi">
                                                 <rect key="frame" x="69" y="181" width="160" height="50"/>
@@ -41,7 +41,7 @@
                                                     <constraint firstAttribute="height" constant="156" id="Eob-Uf-AIH"/>
                                                     <constraint firstAttribute="width" constant="298" id="qo2-OR-R5P"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -60,18 +60,38 @@
                                                     <action selector="chkBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hei-Fg-xf8"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0  /  0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="th9-e1-kU2">
+                                                <rect key="frame" x="0.0" y="243" width="83" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="MeP-I1-Xik"/>
+                                                    <constraint firstAttribute="width" constant="83" id="jMz-eb-qUT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Question #00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5P-rV-XvJ">
+                                                <rect key="frame" x="96.5" y="158" width="105" height="21"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="x7X-eg-0tV" firstAttribute="leading" secondItem="M1Z-y1-xS5" secondAttribute="leading" id="A10-Mt-9cV"/>
                                             <constraint firstAttribute="trailing" secondItem="x7X-eg-0tV" secondAttribute="trailing" id="Bld-la-Ih5"/>
                                             <constraint firstItem="KYe-H6-QLi" firstAttribute="top" secondItem="x7X-eg-0tV" secondAttribute="bottom" constant="25" id="Hus-AV-VJF"/>
+                                            <constraint firstItem="G5P-rV-XvJ" firstAttribute="centerX" secondItem="M1Z-y1-xS5" secondAttribute="centerX" id="RJC-Ya-d16"/>
                                             <constraint firstAttribute="height" constant="264" id="VlG-HA-NjZ"/>
                                             <constraint firstItem="KYe-H6-QLi" firstAttribute="centerX" secondItem="x7X-eg-0tV" secondAttribute="centerX" id="Xk6-lJ-qPm"/>
                                             <constraint firstItem="x7X-eg-0tV" firstAttribute="top" secondItem="M1Z-y1-xS5" secondAttribute="top" id="dAl-3M-r3u"/>
                                             <constraint firstAttribute="bottom" secondItem="oTe-Ik-8xI" secondAttribute="bottom" id="etN-Mg-1GS"/>
+                                            <constraint firstAttribute="bottom" secondItem="th9-e1-kU2" secondAttribute="bottom" id="gOP-hB-ClB"/>
+                                            <constraint firstItem="G5P-rV-XvJ" firstAttribute="top" secondItem="x7X-eg-0tV" secondAttribute="bottom" constant="2" id="itJ-Zu-83y"/>
                                             <constraint firstItem="oTe-Ik-8xI" firstAttribute="centerX" secondItem="M1Z-y1-xS5" secondAttribute="centerX" id="sPh-AR-05w"/>
                                             <constraint firstAttribute="width" constant="298" id="yL6-oM-JM7"/>
+                                            <constraint firstItem="th9-e1-kU2" firstAttribute="leading" secondItem="M1Z-y1-xS5" secondAttribute="leading" id="yh9-6m-eeU"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -95,12 +115,14 @@
                         <outlet property="answerTxt" destination="KYe-H6-QLi" id="Dzp-aA-aLM"/>
                         <outlet property="checkBtn" destination="x7X-eg-0tV" id="bEa-ek-FcQ"/>
                         <outlet property="chkBtn" destination="oTe-Ik-8xI" id="kbQ-hs-eLQ"/>
+                        <outlet property="progressLbl" destination="th9-e1-kU2" id="Fq4-Qy-a2x"/>
                         <outlet property="questionLbl" destination="x7X-eg-0tV" id="phD-KY-iMV"/>
+                        <outlet property="questionNumberLbl" destination="G5P-rV-XvJ" id="oIt-RV-fPh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="133.5832083958021"/>
+            <point key="canvasLocation" x="131.8359375" y="132.8125"/>
         </scene>
     </scenes>
 </document>

@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var questionLbl: UILabel!
     @IBOutlet weak var answerTxt: UITextField!
     @IBOutlet weak var chkBtn: UIButton!
+    @IBOutlet weak var progressLbl: UILabel!
+    @IBOutlet weak var questionNumberLbl: UILabel!
     
     let allQuestions = QuestionList()
     var questionNumber: Int = 0
@@ -29,7 +31,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         questionNumber = 0
-        
+        questionNumberLbl.text = "Question #\(questionNumber + 1)"
         let firstQuestion = allQuestions.list[0].question
         questionLbl.text = firstQuestion
     }
@@ -41,33 +43,42 @@ class ViewController: UIViewController {
         
         let correctAnswer = allQuestions.list[questionNumber].answer
         
-        
-        if numberFailed == 1{
-            
-            readMe(myText: "The correct answer is")
-            answerTxt.textColor = (UIColor.red)
-            answerTxt.text = correctAnswer
-            chkBtn .isEnabled = false
-            let when = DispatchTime.now() + 3
-            DispatchQueue.main.asyncAfter(deadline: when){
-                //next problem
-                self.nextQuestion()
-                self.numberFailed = 0
-             }
-            
-        }
-        else if answerTxt.text == correctAnswer{
+        if answerTxt.text == correctAnswer{
             //congratulate
             randomPositiveFeedback()
             
             //next Question
             nextQuestion()
-            
+            correctAnswers += 1
+            numberAttempts += 1
+            updateProgress()
+            numberFailed = 0
         }
+
+        else
+            if numberFailed == 1{
+                
+                readMe(myText: "The correct answer is")
+                answerTxt.textColor = (UIColor.red)
+                answerTxt.text = correctAnswer
+                numberAttempts += 1
+                updateProgress()
+                chkBtn .isEnabled = false
+                let when = DispatchTime.now() + 3
+                DispatchQueue.main.asyncAfter(deadline: when){
+                    //next problem
+                    self.nextQuestion()
+                    self.numberFailed = 0
+                    
+                }
+                
+            }
         else {
             numberFailed += 1
             readMe(myText: "Try again")
             answerTxt.text = ""
+            numberAttempts += 1
+            updateProgress()
         }
         
     }
@@ -94,11 +105,17 @@ class ViewController: UIViewController {
         questionNumber += 1
         //if there are 14 questions, the number below should be 13 (always one less)
         if questionNumber <= 48 {
+            
             questionLbl.text = allQuestions.list[questionNumber].question
+            questionNumberLbl.text = "Question #\(questionNumber + 1)"
         }
         else {
             print("why am I here")
         }
+    }
+    
+    func updateProgress(){
+        progressLbl.text = "\(correctAnswers) / \(numberAttempts)"
     }
 }
 
