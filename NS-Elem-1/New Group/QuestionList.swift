@@ -51,6 +51,5 @@ class QuestionList {
         list.append(Question(questionText: "Twenty-four is to eight as an n is to five. n =", answerText: "15", answerText2:""))
         list.append(Question(questionText: "If 9 apples cost 48 cents, then 18 apples cost =", answerText: "96", answerText2:""))
         list.append(Question(questionText: "What is the greatest common divisor of 24 and 18?", answerText: "6", answerText2:""))
-       
     }
 }

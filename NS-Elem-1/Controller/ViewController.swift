@@ -117,13 +117,14 @@ class ViewController: UIViewController {
         answerTxt.textColor = (UIColor.black)
         questionNumber += 1
         //if there are 14 questions, the number below should be 13 (always one less)
-        if questionNumber <= 48 {
+        if questionNumber <= 36 {
             
             questionLbl.text = allQuestions.list[questionNumber].question
             questionNumberLbl.text = "Question #\(questionNumber + 1)"
         }
         else {
-            print("why am I here")
+            chkBtn .isEnabled = false
+            timer.invalidate()
         }
     }
     
