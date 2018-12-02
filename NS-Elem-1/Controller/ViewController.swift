@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var chkBtn: UIButton!
     @IBOutlet weak var progressLbl: UILabel!
     @IBOutlet weak var questionNumberLbl: UILabel!
+    @IBOutlet weak var timerLbl: UILabel!
     
     let allQuestions = QuestionList()
     var questionNumber: Int = 0
@@ -22,6 +23,10 @@ class ViewController: UIViewController {
     var correctAnswers: Int = 0
     var numberAttempts: Int = 0
     var numberFailed: Int = 0
+    
+    var timer = Timer()
+    var counter = 0.0
+    var isRunning = false
     
     let congratulateArray = ["Great Job", "Excellent", "Way to go", "Alright", "Right on", "Correct", "Well done", "Awesome","Give me a high five"]
     let retryArray = ["Try again","Oooops"]
@@ -34,9 +39,17 @@ class ViewController: UIViewController {
         questionNumberLbl.text = "Question #\(questionNumber + 1)"
         let firstQuestion = allQuestions.list[0].question
         questionLbl.text = firstQuestion
+        
+        timerLbl.text = "\(counter)"
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
     }
 
     @IBOutlet weak var checkBtn: UILabel!
+    
+    @objc func updateTimer(){
+        counter += 0.1
+        timerLbl.text = String(format:"%.1f",counter)
+    }
     
     @IBAction func chkBtn(_ sender: Any) {
         
