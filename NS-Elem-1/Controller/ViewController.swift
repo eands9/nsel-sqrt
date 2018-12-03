@@ -24,9 +24,16 @@ class ViewController: UIViewController {
     var numberAttempts: Int = 0
     var numberFailed: Int = 0
     
+    var totalNumberOfQuestions: Int = 0
+    var markedQuestionsCount: Int = 0
+    var isTesting: Bool = true
+    
+    
     var timer = Timer()
     var counter = 0.0
     var isRunning = false
+    
+    var markedQuestions = [Question]()
     
     let congratulateArray = ["Great Job", "Excellent", "Way to go", "Alright", "Right on", "Correct", "Well done", "Awesome","Give me a high five"]
     let retryArray = ["Try again","Oooops"]
@@ -42,6 +49,12 @@ class ViewController: UIViewController {
         
         timerLbl.text = "\(counter)"
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+        
+        // Get a count of number of questions
+        let numberOfQuestions = allQuestions.list
+        // Get the size of the array
+        totalNumberOfQuestions = numberOfQuestions.count
+        //print(totalNumberOfQuestions)
     }
 
     @IBOutlet weak var checkBtn: UILabel!
@@ -53,7 +66,18 @@ class ViewController: UIViewController {
     
     @IBAction func chkBtn(_ sender: Any) {
         
+        if isTesting == true {
+            testTaking()
+        }
+        else {
+            testReview()
+        }
         
+
+        
+    }
+    
+    func testTaking(){
         let correctAnswer = allQuestions.list[questionNumber].answer
         
         if answerTxt.text == correctAnswer{
@@ -67,7 +91,7 @@ class ViewController: UIViewController {
             updateProgress()
             numberFailed = 0
         }
-
+            
         else
             if numberFailed == 1{
                 
@@ -85,15 +109,68 @@ class ViewController: UIViewController {
                     
                 }
                 
+                //Keep track of questions that were answered incorrectly
+                trackMarkedQuestions()
+                
             }
-        else {
-            numberFailed += 1
-            readMe(myText: "Try again")
-            answerTxt.text = ""
-            numberAttempts += 1
-            updateProgress()
+            else {
+                numberFailed += 1
+                readMe(myText: "Try again")
+                answerTxt.text = ""
+                numberAttempts += 1
+                updateProgress()
         }
         
+        //var testMarkedQQ = markedQuestions[1].question
+        //print (testMarkedQQ)
+        //let totalMarkedCont = markedQuestions.count
+        //print (totalMarkedCont)
+    }
+    
+    func testReview(){
+        let correctAnswer = allQuestions.list[questionNumber].answer
+        
+        if answerTxt.text == correctAnswer{
+            //congratulate
+            randomPositiveFeedback()
+            
+            //next Question
+            nextQuestion()
+            correctAnswers += 1
+            numberAttempts += 1
+            updateProgress()
+            numberFailed = 0
+        }
+            
+        else
+            if numberFailed == 1{
+                
+                readMe(myText: "The correct answer is")
+                answerTxt.textColor = (UIColor.red)
+                answerTxt.text = correctAnswer
+                numberAttempts += 1
+                updateProgress()
+                chkBtn .isEnabled = false
+                let when = DispatchTime.now() + 3
+                DispatchQueue.main.asyncAfter(deadline: when){
+                    //next problem
+                    self.nextQuestion()
+                    self.numberFailed = 0
+                    
+                }
+                
+                //Keep track of questions that were answered incorrectly
+                trackMarkedQuestions()
+                
+            }
+            else {
+                numberFailed += 1
+                readMe(myText: "Try again")
+                answerTxt.text = ""
+                numberAttempts += 1
+                updateProgress()
+        }
+    
     }
     
     func readMe( myText: String) {
@@ -116,20 +193,43 @@ class ViewController: UIViewController {
         answerTxt.text = ""
         answerTxt.textColor = (UIColor.black)
         questionNumber += 1
-        //if there are 14 questions, the number below should be 13 (always one less)
-        if questionNumber <= 36 {
-            
+        
+        
+        if questionNumber <= totalNumberOfQuestions - 1  {
+            //print(totalNumberOfQuestions)
             questionLbl.text = allQuestions.list[questionNumber].question
             questionNumberLbl.text = "Question #\(questionNumber + 1)"
         }
         else {
-            chkBtn .isEnabled = false
+            isTesting = false
             timer.invalidate()
+            
+
         }
+
     }
     
     func updateProgress(){
         progressLbl.text = "\(correctAnswers) / \(numberAttempts)"
+    }
+    
+    func trackMarkedQuestions(){
+        let trackedQuestion = allQuestions.list[questionNumber].question
+        let trackedAnswer = allQuestions.list[questionNumber].answer
+        let trackedAnswer2 = allQuestions.list[questionNumber].answer2
+        
+        markedQuestions.append(Question(questionText: trackedQuestion, answerText: trackedAnswer, answerText2: trackedAnswer2 ))
+        
+        //print(trackedQuestion, trackedAnswer, trackedAnswer2)
+        
+        
+        
+        //var testMarkedQQ = markedQuestions[markedQuestionsCount].question
+        //print (testMarkedQQ)
+        
+        markedQuestionsCount += 1
+    
+
     }
 }
 
