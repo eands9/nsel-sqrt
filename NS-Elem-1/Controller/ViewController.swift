@@ -79,6 +79,24 @@ class ViewController: UIViewController {
     }
     
     func testTaking(){
+        
+        /*
+        let answerValueStr = Int(allQuestions.list[questionNumber].answer)
+        let answerValueStr2 = allQuestions.list[questionNumber].answer2
+        
+        let answerValueInt = 1 * answerValueStr
+        let answerValueInt2 = Int(answerValueStr2)
+        let answerInt = Int(answerTxt.text!)
+        
+       
+        if answerInt >= answerValueInt && answerInt <= answerValueInt2 {
+            
+        }
+        else{
+            
+        }
+        */
+        
         let correctAnswer = allQuestions.list[questionNumber].answer
         
         if answerTxt.text == correctAnswer{
@@ -211,7 +229,7 @@ class ViewController: UIViewController {
             answerTxt.textColor = (UIColor.red)
             questionNumberLbl.text = ""
             
-            print(markedQuestionsCount)
+
         }
     }
     
@@ -227,7 +245,7 @@ class ViewController: UIViewController {
             //questionNumberLbl.text = "Question #\(questionNumber + 1)"
         }
         else {
-            
+            chkBtn .isEnabled = false
             let alert = UIAlertController(title: "Awesome", message: "You've finished all the questions, do you want to start over again?", preferredStyle: .alert)
             
             let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { (UIAlertAction) in
@@ -266,6 +284,8 @@ class ViewController: UIViewController {
         correctAnswers = 0
         numberAttempts = 0
         updateProgress()
+        
+        chkBtn .isEnabled = true
         
     }
 

@@ -15,8 +15,7 @@ class QuestionList {
     init() {
 
         list.append(Question(questionText: "21 + 15 =", answerText: "36", answerText2:""))
-        list.append(Question(questionText: "*444 X 91", answerText: "38384", answerText2:"42424"))
-        /*list.append(Question(questionText: "14 X 2 =", answerText: "28", answerText2:""))
+        list.append(Question(questionText: "14 X 2 =", answerText: "28", answerText2:""))
         list.append(Question(questionText: "64 / 2 =", answerText: "32", answerText2:""))
         list.append(Question(questionText: "79 - 26 =", answerText: "53", answerText2:""))
         list.append(Question(questionText: "8 X 21 =", answerText: "168", answerText2:""))
@@ -26,6 +25,7 @@ class QuestionList {
         list.append(Question(questionText: "1 + 2 + 3 + 4 + 5 =", answerText: "15", answerText2:""))
         list.append(Question(questionText: "12 X 14", answerText: "168", answerText2:""))
         list.append(Question(questionText: "Which digit is in the the-thousands place 231078.4965?", answerText: "3", answerText2:""))
+        list.append(Question(questionText: "*444 X 91", answerText: "38384", answerText2:"42424"))
         list.append(Question(questionText: "8 X 12 + 8 X 8 =", answerText: "160", answerText2:""))
         list.append(Question(questionText: "XLVI = (Arabic Numeral)", answerText: "46", answerText2:""))
         list.append(Question(questionText: "2789295 rounded to the hundreds is", answerText: "2789300", answerText2:""))
@@ -51,6 +51,5 @@ class QuestionList {
         list.append(Question(questionText: "Twenty-four is to eight as an n is to five. n =", answerText: "15", answerText2:""))
         list.append(Question(questionText: "If 9 apples cost 48 cents, then 18 apples cost =", answerText: "96", answerText2:""))
         list.append(Question(questionText: "What is the greatest common divisor of 24 and 18?", answerText: "6", answerText2:""))
-        */
     }
 }
