@@ -24,7 +24,7 @@ class QuestionList {
         list.append(Question(questionText: "36 X 11 = ", answerText: "396", answerText2:""))
         list.append(Question(questionText: "1 + 2 + 3 + 4 + 5 =", answerText: "15", answerText2:""))
         list.append(Question(questionText: "12 X 14", answerText: "168", answerText2:""))
-        list.append(Question(questionText: "Which digit is in the the-thousands place 231078.4965?", answerText: "3", answerText2:""))
+        list.append(Question(questionText: "Which digit is in the ten-thousands place 231078.4965?", answerText: "3", answerText2:""))
         list.append(Question(questionText: "*444 X 91", answerText: "38384", answerText2:"42424"))
         list.append(Question(questionText: "8 X 12 + 8 X 8 =", answerText: "160", answerText2:""))
         list.append(Question(questionText: "XLVI = (Arabic Numeral)", answerText: "46", answerText2:""))

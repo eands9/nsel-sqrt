@@ -56,6 +56,9 @@ class ViewController: UIViewController {
         // Get the size of the array
         totalNumberOfQuestions = numberOfQuestions.count
         //print(totalNumberOfQuestions)
+        
+        //answerTxt.isFirstResponder = true
+        self.answerTxt.becomeFirstResponder()
     }
 
     @IBOutlet weak var checkBtn: UILabel!
