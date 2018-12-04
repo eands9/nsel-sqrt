@@ -27,6 +27,7 @@ class ViewController: UIViewController {
     var totalNumberOfQuestions: Int = 0
     var markedQuestionsCount: Int = 0
     var isTesting: Bool = true
+    var isLoadedTrackedQuestions: Bool = false
     
     
     var timer = Timer()
@@ -128,49 +129,37 @@ class ViewController: UIViewController {
     }
     
     func testReview(){
-        let correctAnswer = allQuestions.list[questionNumber].answer
+        
+        
+        let correctAnswer = markedQuestions[questionNumber].answer
         
         if answerTxt.text == correctAnswer{
             //congratulate
             randomPositiveFeedback()
             
             //next Question
-            nextQuestion()
+            nextQuestionIsReview()
+            /*
             correctAnswers += 1
             numberAttempts += 1
             updateProgress()
             numberFailed = 0
+             */
         }
             
-        else
-            if numberFailed == 1{
+        else{
                 
                 readMe(myText: "The correct answer is")
                 answerTxt.textColor = (UIColor.red)
                 answerTxt.text = correctAnswer
-                numberAttempts += 1
-                updateProgress()
+
                 chkBtn .isEnabled = false
                 let when = DispatchTime.now() + 3
                 DispatchQueue.main.asyncAfter(deadline: when){
                     //next problem
                     self.nextQuestion()
-                    self.numberFailed = 0
-                    
                 }
-                
-                //Keep track of questions that were answered incorrectly
-                trackMarkedQuestions()
-                
             }
-            else {
-                numberFailed += 1
-                readMe(myText: "Try again")
-                answerTxt.text = ""
-                numberAttempts += 1
-                updateProgress()
-        }
-    
     }
     
     func readMe( myText: String) {
@@ -189,11 +178,21 @@ class ViewController: UIViewController {
     }
     
     func nextQuestion(){
+        if isTesting == true  {
+            nextQuestionIsTesting()
+        }
+        else {
+            nextQuestionIsReview()
+            print("running nextQuestionIsReview EH")
+        }
+
+    }
+    
+    func nextQuestionIsTesting(){
         chkBtn .isEnabled = true
         answerTxt.text = ""
         answerTxt.textColor = (UIColor.black)
         questionNumber += 1
-        
         
         if questionNumber <= totalNumberOfQuestions - 1  {
             //print(totalNumberOfQuestions)
@@ -203,12 +202,73 @@ class ViewController: UIViewController {
         else {
             isTesting = false
             timer.invalidate()
+            readMe(myText: "Let us review")
             
-
+            questionNumber = 0
+            questionLbl.text = markedQuestions[questionNumber].question
+            questionLbl.textColor = (UIColor.red)
+            answerTxt.text = ""
+            answerTxt.textColor = (UIColor.red)
+            questionNumberLbl.text = ""
+            
+            print(markedQuestionsCount)
         }
-
     }
     
+    func nextQuestionIsReview(){
+        
+        questionNumber += 1
+        answerTxt.text = ""
+        chkBtn .isEnabled = true
+        
+        if questionNumber <= markedQuestionsCount - 1  {
+            //print(totalNumberOfQuestions)
+            questionLbl.text = markedQuestions[questionNumber].question
+            //questionNumberLbl.text = "Question #\(questionNumber + 1)"
+        }
+        else {
+            
+            let alert = UIAlertController(title: "Awesome", message: "You've finished all the questions, do you want to start over again?", preferredStyle: .alert)
+            
+            let restartAction = UIAlertAction(title: "Restart", style: .default, handler: { (UIAlertAction) in
+                self.startOver()
+                
+            })
+            
+            alert.addAction(restartAction)
+            present(alert, animated: true, completion: nil)
+            
+        }
+    }
+    
+    func startOver(){
+        
+        isTesting = true
+        
+        questionNumber = 0
+        questionNumberLbl.text = "Question #\(questionNumber + 1)"
+        let firstQuestion = allQuestions.list[0].question
+        questionLbl.text = firstQuestion
+        
+        counter = 0
+        timerLbl.text = "\(counter)"
+        timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.updateTimer), userInfo: nil, repeats: true)
+        
+        
+        // Get a count of number of questions
+        let numberOfQuestions = allQuestions.list
+        // Get the size of the array
+        totalNumberOfQuestions = numberOfQuestions.count
+        //print(totalNumberOfQuestions)
+        
+        answerTxt.textColor = (UIColor.black)
+        questionLbl.textColor = (UIColor.black)
+        correctAnswers = 0
+        numberAttempts = 0
+        updateProgress()
+        
+    }
+
     func updateProgress(){
         progressLbl.text = "\(correctAnswers) / \(numberAttempts)"
     }
