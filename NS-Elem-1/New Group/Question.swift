@@ -11,11 +11,11 @@ import Foundation
 class Question {
     let question: String
     let answer: String
-    let answer2: String
+
     
-    init(questionText: String, answerText: String, answerText2: String){
+    init(questionText: String, answerText: String){
         question = questionText
         answer = answerText
-        answer2 = answerText2
+
     }
 }

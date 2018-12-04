@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:NS-Elem-1.xcodeproj">
+      location = "self:/Users/erichernandez/Documents/GitHub/NumberSense/nsel-x15/nsel-x15.xcodeproj">
    </FileRef>
 </Workspace>

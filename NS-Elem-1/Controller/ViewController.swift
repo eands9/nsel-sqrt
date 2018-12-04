@@ -299,9 +299,9 @@ class ViewController: UIViewController {
     func trackMarkedQuestions(){
         let trackedQuestion = allQuestions.list[questionNumber].question
         let trackedAnswer = allQuestions.list[questionNumber].answer
-        let trackedAnswer2 = allQuestions.list[questionNumber].answer2
         
-        markedQuestions.append(Question(questionText: trackedQuestion, answerText: trackedAnswer, answerText2: trackedAnswer2 ))
+        
+        markedQuestions.append(Question(questionText: trackedQuestion, answerText: trackedAnswer))
         
         //print(trackedQuestion, trackedAnswer, trackedAnswer2)
         

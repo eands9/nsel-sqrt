@@ -17,7 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6D5D5F5A21B426E6007F5184 /* NS-Elem-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NS-Elem-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D5D5F5A21B426E6007F5184 /* nsel-x15.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "nsel-x15.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D5D5F5D21B426E6007F5184 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6D5D5F5F21B426E6007F5184 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6D5D5F6221B426E6007F5184 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,7 +50,7 @@
 		6D5D5F5B21B426E6007F5184 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6D5D5F5A21B426E6007F5184 /* NS-Elem-1.app */,
+				6D5D5F5A21B426E6007F5184 /* nsel-x15.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -98,9 +98,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6D5D5F5921B426E6007F5184 /* NS-Elem-1 */ = {
+		6D5D5F5921B426E6007F5184 /* nsel-x15 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6D5D5F6C21B426E7007F5184 /* Build configuration list for PBXNativeTarget "NS-Elem-1" */;
+			buildConfigurationList = 6D5D5F6C21B426E7007F5184 /* Build configuration list for PBXNativeTarget "nsel-x15" */;
 			buildPhases = (
 				6D5D5F5621B426E6007F5184 /* Sources */,
 				6D5D5F5721B426E6007F5184 /* Frameworks */,
@@ -110,9 +110,9 @@
 			);
 			dependencies = (
 			);
-			name = "NS-Elem-1";
+			name = "nsel-x15";
 			productName = "NS-Elem-1";
-			productReference = 6D5D5F5A21B426E6007F5184 /* NS-Elem-1.app */;
+			productReference = 6D5D5F5A21B426E6007F5184 /* nsel-x15.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -130,7 +130,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 6D5D5F5521B426E6007F5184 /* Build configuration list for PBXProject "NS-Elem-1" */;
+			buildConfigurationList = 6D5D5F5521B426E6007F5184 /* Build configuration list for PBXProject "nsel-x15" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -143,7 +143,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6D5D5F5921B426E6007F5184 /* NS-Elem-1 */,
+				6D5D5F5921B426E6007F5184 /* nsel-x15 */,
 			);
 		};
 /* End PBXProject section */
@@ -322,7 +322,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eands9.NS-Elem-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eands9.nsel-x15";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -340,7 +340,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.eands9.NS-Elem-1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.eands9.nsel-x15";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -350,7 +350,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6D5D5F5521B426E6007F5184 /* Build configuration list for PBXProject "NS-Elem-1" */ = {
+		6D5D5F5521B426E6007F5184 /* Build configuration list for PBXProject "nsel-x15" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6D5D5F6A21B426E7007F5184 /* Debug */,
@@ -359,7 +359,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6D5D5F6C21B426E7007F5184 /* Build configuration list for PBXNativeTarget "NS-Elem-1" */ = {
+		6D5D5F6C21B426E7007F5184 /* Build configuration list for PBXNativeTarget "nsel-x15" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				6D5D5F6D21B426E7007F5184 /* Debug */,
